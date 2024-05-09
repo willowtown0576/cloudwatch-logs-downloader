@@ -23,9 +23,9 @@ $ pip install boto3
 
 - --log-group: ログを取得するCloudWatchロググループの名前。
 - --profile: 使用するAWSプロファイルの名前。
-- --start_date: ログ取得の開始日時（YYYY-MM-DDTHH:MM:SS形式）。
-- --end_date: ログ取得の終了日時（YYYY-MM-DDTHH:MM:SS形式）。
-- --output_file (オプション): 出力されるCSVファイルの名前（デフォルトはoutput.csv）。
+- --start-date: ログ取得の開始日時（YYYY-MM-DDTHH:MM:SS形式）。
+- --end-date: ログ取得の終了日時（YYYY-MM-DDTHH:MM:SS形式）。
+- --output-file (オプション): 出力されるCSVファイルの名前（デフォルトはoutput.csv）。
 - --limit (オプション): 取得するログの最大数（デフォルトは10000件）。
 - --no-limit (オプション): ログの取得数に上限を設定しない場合に指定。
 
@@ -35,7 +35,7 @@ $ pip install boto3
 $ python download_cloudwatch_logs.py \
     --log-group "/aws/lambda/exampleLogGroup" \
     --profile "default" \
-    --start_date "2023-01-01T00:00:00" \
-    --end_date "2023-01-01T23:59:59" \
-    --output_file "example_logs.csv"
+    --start-date "2023-01-01T00:00:00" \
+    --end-date "2023-01-01T23:59:59" \
+    --output-file "example_logs.csv"
 ```
