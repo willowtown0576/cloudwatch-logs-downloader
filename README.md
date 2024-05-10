@@ -10,32 +10,32 @@
 - AWSの認証情報が設定されていること（.aws/credentialsおよび.aws/configファイルを通じて、または環境変数を設定して）。
 
 ## インストール方法
-1. 必要なPythonライブラリをインストールします：
+1. このリポジトリをクローンします。
 
-```bash 
-$ pip install boto3
+2. 必要なPythonライブラリをインストールします：
+
+```sh 
+$ pip install -r requirements.txt
 ```
-
-2. このリポジトリをクローンするか、スクリプトファイルをダウンロードします。
 
 ## 使用方法
 スクリプトはコマンドラインから実行され、以下の引数を必要とします：
 
 - --log-group: ログを取得するCloudWatchロググループの名前。
 - --profile: 使用するAWSプロファイルの名前。
-- --start-date: ログ取得の開始日時（YYYY-MM-DDTHH:MM:SS形式）。
-- --end-date: ログ取得の終了日時（YYYY-MM-DDTHH:MM:SS形式）。
-- --output-file (オプション): 出力されるCSVファイルの名前（デフォルトはoutput.csv）。
-- --limit (オプション): 取得するログの最大数（デフォルトは10000件）。
-- --no-limit (オプション): ログの取得数に上限を設定しない場合に指定。
+- --start-time ログ取得の開始日時（YYYY-MM-DDTHH:MM:SS形式）。
+- --end-time: ログ取得の終了日時（YYYY-MM-DDTHH:MM:SS形式）。
+- --output-file (オプション): 出力されるCSVファイルの名前（デフォルトはoutput_yyyyMMddHHmmss.csv）。
+- --no-verify-ssl (オプション): SSL証明書認証をスキップします。
 
 例えば、以下のコマンドでスクリプトを実行できます：
 
-```bash
+```sh
 $ python download_cloudwatch_logs.py \
     --log-group "/aws/lambda/exampleLogGroup" \
     --profile "default" \
-    --start-date "2023-01-01T00:00:00" \
-    --end-date "2023-01-01T23:59:59" \
-    --output-file "example_logs.csv"
+    --start-time "2023-01-01T00:00:00" \
+    --end-time "2023-01-01T23:59:59" \
+    --output-file "example_logs.csv" \
+    --no-verify-ssl
 ```
